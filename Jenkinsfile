@@ -34,7 +34,7 @@ pipeline {
         stage('Helm upgrade') {
             steps {
               withKubeConfig([credentialsId: '3', serverUrl: "${CLUSTER_URL}"]) {
-              sh 'helm upgrade --install websrv-chart websrv-chart/values.yaml --namespace kube-system'
+              sh 'helm upgrade websrv-chart websrv-chart --namespace kube-system'
               }
            }
        }  
